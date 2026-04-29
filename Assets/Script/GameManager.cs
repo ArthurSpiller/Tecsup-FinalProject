@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     private int _takerId;
 
     void Start() {
+        Debug.Log("Game Started");
         ChangeState(GameState.Setup);
     }
 
@@ -28,7 +29,8 @@ public class GameManager : MonoBehaviour {
     
     public void ChangeState(GameState state) {
         _currentState = state;
-
+        Debug.Log($"Changing state to {state}");
+        
         switch (_currentState) {
         case GameState.Setup:
             EnterSetup();
@@ -103,7 +105,6 @@ public class GameManager : MonoBehaviour {
     }
 
     private void EnterBidding() {
-        _takerId = -1;
         _biddingSystem = new BiddingSystem(_players);
     }
 
@@ -116,7 +117,8 @@ public class GameManager : MonoBehaviour {
             if (_takerId == -1)
                 ChangeState(GameState.EndRound);
             else
-                ChangeState(GameState.ChienHandling);
+                ChangeState(GameState.Playing);
+                //ChangeState(GameState.ChienHandling);
         }
     }
 

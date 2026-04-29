@@ -6,7 +6,7 @@ public class BiddingSystem
     private int _currentPlayer;
     private int _passes;
 
-    public int TakerId { get; private set; } = -1;
+    public int TakerId { get; private set; } = 0;
     public bool IsFinished { get; private set; }
 
     public BiddingSystem(List<Player> players)
