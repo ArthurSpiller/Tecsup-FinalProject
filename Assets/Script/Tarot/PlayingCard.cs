@@ -22,6 +22,25 @@ public class PlayingCard {
     }
 
     public override string ToString() {
+        if (_rank > 10 || _rank == 1) {
+            switch (_rank) {
+            case 11:
+                return $"Jack of {_suit}";
+                break;
+            case 12:
+                return $"Cavalier of {_suit}";
+                break;
+            case 13:
+                return $"Queen of {_suit}";
+                break;
+            case 14:
+                return $"King of {_suit}";
+                break;
+            case 1:
+                return $"Ace of {_suit}";
+                break;
+            }
+        }
         if (_suit == Suit.Trumps && _rank == 0)
             return "The Excuse";
         return $"{_rank} of {_suit}";
