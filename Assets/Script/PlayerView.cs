@@ -6,41 +6,36 @@ public class PlayerView : MonoBehaviour
 {
     [SerializeField] private Transform _handContainer;
     [SerializeField] private GameObject _cardPrefab;
+    [SerializeField] private CardSpriteProvider _spriteProvider;
 
     private Action<int> _onCardSelected;
     private List<GameObject> _spawnedCards = new List<GameObject>();
 
-    public void ShowHand(List<PlayingCard> hand, Action<int> onCardSelected)
-    {
+    public void ShowHand(List<PlayingCard> hand, Action<int> onCardSelected) {
         _onCardSelected = onCardSelected;
 
         ClearHand();
 
-        for (int i = 0; i < hand.Count; i++)
-        {
+        for (int i = 0; i < hand.Count; i++) {
             var cardGO = Instantiate(_cardPrefab, _handContainer);
             var cardView = cardGO.GetComponent<CardView>();
 
             int index = i;
 
-            cardView.Init(hand[i], index, OnCardClicked);
+            cardView.Init(hand[i], index, OnCardClicked, _spriteProvider);
 
             _spawnedCards.Add(cardGO);
         }
     }
 
-    private void OnCardClicked(int index)
-    {
+    private void OnCardClicked(int index) {
         _onCardSelected?.Invoke(index);
         _onCardSelected = null;
     }
 
-    private void ClearHand()
-    {
+    private void ClearHand() {
         foreach (var go in _spawnedCards)
-        {
             Destroy(go);
-        }
         _spawnedCards.Clear();
     }
 }
