@@ -45,7 +45,7 @@ public class Deck {
         if (_deck.Count == 0)
             return null;
         PlayingCard topCard = _deck[0];
-        _deck.removeAt(0);
+        _deck.RemoveAt(0);
         return topCard;
     }
 }

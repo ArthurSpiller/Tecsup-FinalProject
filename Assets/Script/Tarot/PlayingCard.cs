@@ -1,6 +1,6 @@
 public class PlayingCard {
-    private Suit _suit;
-    private int _rank;
+    public Suit _suit;
+    public int _rank;
 
     public PlayingCard(Suit suit, int rank) {
         _suit = suit;
