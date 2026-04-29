@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Player {
     public int _id;
     public List<PlayingCard> _hand = new List<PlayingCard>();

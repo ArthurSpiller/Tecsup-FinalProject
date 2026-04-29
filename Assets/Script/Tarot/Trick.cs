@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Trick {
     public int _leaderId;
     public List<PlayingCard> _cardsPlayed;
