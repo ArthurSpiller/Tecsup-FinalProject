@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class CuttingSystem
 {
     private Deck _deck;
@@ -15,7 +17,7 @@ public class CuttingSystem
     }
 
     private void AskPlayerToCut() {
-        _playerView.ShowCutUI(OnCutChosen);
+    //    _playerView.ShowCutUI(OnCutChosen);
     }
 
     private void OnCutChosen(int cutIndex) {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Deck {
     private List<PlayingCard> _deck = new List<PlayingCard>();
@@ -47,5 +48,13 @@ public class Deck {
         PlayingCard topCard = _deck[0];
         _deck.RemoveAt(0);
         return topCard;
+    }
+
+    public void Clear() {
+        _deck.Clear();
+    }
+
+    public void AddRange(List<PlayingCard> list) {
+        _deck.AddRange(list);
     }
 }

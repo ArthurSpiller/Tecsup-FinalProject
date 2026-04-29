@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class DealSystem
 {
     private List<Player> _players;

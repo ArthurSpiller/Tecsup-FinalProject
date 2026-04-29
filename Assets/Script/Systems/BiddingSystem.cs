@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class BiddingSystem
 {
     private List<Player> _players;
@@ -23,14 +25,14 @@ public class BiddingSystem
     private void AskPlayer()
     {
         // Replace later with PlayerView interaction
-        bool takes = Random.value > 0.7f;
+        /*bool takes = Random.value > 0.7f;
 
         if (takes)
         {
             TakerId = _currentPlayer;
             IsFinished = true;
             return;
-        }
+        }*/
 
         _passes++;
         _currentPlayer = (_currentPlayer + 1) % _players.Count;

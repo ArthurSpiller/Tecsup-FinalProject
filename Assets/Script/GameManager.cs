@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour {
     private void UpdateDealing() {
         _dealSystem.Update();
 
-        if (_dealSystem.isFinished)
+        if (_dealSystem.IsFinished)
             ChangeState(GameState.Bidding);
     }
 
@@ -155,10 +155,10 @@ public class GameManager : MonoBehaviour {
     private void EnterEndRound() {
         _currentDealerId = (_currentDealerId + 1) % _players.Count;
 
-        _deck.Clear()
-            foreach (Player player in _players) {
-                _deck.AddRange(player._scoringPile);
-            }
+        _deck.Clear();
+        foreach (Player player in _players) {
+            _deck.AddRange(player._scoringPile);
+        }
         ChangeState(GameState.Cutting);
     }
 

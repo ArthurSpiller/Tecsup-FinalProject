@@ -1,4 +1,4 @@
-public class CardList {
+/*public class CardList {
     private List<Card> _list = new List<Card>();
     public int Count => _list.Count;
     
@@ -33,4 +33,4 @@ public class CardList {
     public void Clear() {
         _list.Clear();
     }
-}
+}*/
