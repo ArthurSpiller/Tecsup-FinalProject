@@ -22,7 +22,7 @@ public class PlayingCard {
     }
 
     public override string ToString() {
-        if (_rank > 10 || _rank == 1) {
+        if ((_rank > 10 || _rank == 1) && _suit != Suit.Trumps) {
             switch (_rank) {
             case 11:
                 return $"Jack of {_suit}";

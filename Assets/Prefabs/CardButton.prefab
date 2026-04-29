@@ -349,3 +349,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardView
   _button: {fileID: 6340084167168760681}
   _label: {fileID: 3158550417922980427}
+  _image: {fileID: 4780563184627949516}
