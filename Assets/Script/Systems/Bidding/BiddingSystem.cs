@@ -1,76 +1,52 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class BiddingSystem : MonoBehaviour {
+public class BiddingSystem
+{
     private List<Player> _players;
+    private List<PlayerView> _views;
+
     private int _currentPlayer;
-    private int _passes;
+    private bool _waitingForInput;
 
-    public int TakerId { get; private set; } = -1;
     public bool IsFinished { get; private set; }
-    [SerializeField] private Transform _biddingPanel;
-    [SerializeField] private Button _passButton;
-    [SerializeField] private Button _takeButton;
-    private bool _awaitingInput;
+    public int TakerId { get; private set; } = -1;
 
-    public BiddingSystem(List<Player> players, int currentDealerId)
+    public BiddingSystem(List<Player> players, List<PlayerView> views, int currentDealerId)
     {
         _players = players;
+        _views = views;
+
         _currentPlayer = (currentDealerId + 1) % players.Count;
-
-        if (_biddingPanel != null)
-            _biddingPanel.gameObject.SetActive(true);
-        _awaitingInput = false;
-        if (_passButton != null)
-            _passButton.onClick.AddListener(PlayerPasses);
-        if (_takeButton != null)
-            _takeButton.onClick.AddListener(PlayerTakes);
-        AskPlayer();
+        AskNextPlayer();
     }
 
-    public void SetBiddingPanel(Transform panel)
+    private void AskNextPlayer()
     {
-        _biddingPanel = panel;
-    }
-
-    public void Update() {
-        if (IsFinished) {
-            if (_biddingPanel != null)
-                _biddingPanel.gameObject.SetActive(false);
-            return;
-        }
-    }
-
-    public void PlayerPasses() {
-        if (IsFinished || !_awaitingInput)
-            return;
-
-        _passes++;
-        _awaitingInput = false;
-
-        if (_passes >= _players.Count) {
+        if (_currentPlayer >= _players.Count)
+        {
             IsFinished = true;
-            if (_biddingPanel != null)
-                _biddingPanel.gameObject.SetActive(false);
             return;
         }
 
-        _currentPlayer = (_currentPlayer + 1) % _players.Count;
-        AskPlayer();
+        _waitingForInput = true;
+
+        _views[_currentPlayer].AskForBid(OnBidSelected);
     }
 
-    public void PlayerTakes() {
-        if (IsFinished || !_awaitingInput)
+    private void OnBidSelected(BidType bid)
+    {
+        _waitingForInput = false;
+
+        if (bid != BidType.Pass)
+        {
+            TakerId = _currentPlayer;
+            IsFinished = true;
             return;
-        TakerId = _currentPlayer;
-        IsFinished = true;
-        _awaitingInput = false;
-        if (_biddingPanel != null)
-            _biddingPanel.gameObject.SetActive(false);
+        }
+
+        _currentPlayer++;
+        AskNextPlayer();
     }
 
-    private void AskPlayer() {
-        _awaitingInput = true;
-    }
+    public void Update() { }
 }

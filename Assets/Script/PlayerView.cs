@@ -7,9 +7,15 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private Transform _handContainer;
     [SerializeField] private GameObject _cardPrefab;
     [SerializeField] private CardSpriteProvider _spriteProvider;
+    [SerializeField] private BiddingView _biddingView;
 
     private Action<int> _onCardSelected;
     private List<GameObject> _spawnedCards = new List<GameObject>();
+
+    public void AskForBid(Action<BidType> onBidSelected)
+    {
+        _biddingPanel.Show(onBidSelected);
+    }
 
     public void ShowHand(List<PlayingCard> hand, Action<int> onCardSelected) {
         _onCardSelected = onCardSelected;

@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void EnterBidding() {
-        _biddingSystem = new BiddingSystem(_players, _currentDealerId);
+        _biddingSystem = new BiddingSystem(_players, _playerViews, _currentDealerId);
     }
 
     private void UpdateBidding() {
