@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     private Trick _currentTrick;
 
     public List<PlayerView> _playerViews;
-    
+
     [SerializeField] private DealSystem _dealSystem;
     [SerializeField] private BiddingSystem _biddingSystem;
     [SerializeField] private ChienHandlingSystem _chienHandlingSystem;
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void EnterBidding() {
-        _biddingSystem = new BiddingSystem(_players);
+        _biddingSystem = new BiddingSystem(_players, _currentDealerId);
     }
 
     private void UpdateBidding() {
