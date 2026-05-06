@@ -11,8 +11,7 @@ public class BiddingSystem
     public bool IsFinished { get; private set; }
     public int TakerId { get; private set; } = -1;
 
-    public BiddingSystem(List<Player> players, List<PlayerView> views, int currentDealerId)
-    {
+    public BiddingSystem(List<Player> players, List<PlayerView> views, int currentDealerId) {
         _players = players;
         _views = views;
 
@@ -20,8 +19,7 @@ public class BiddingSystem
         AskNextPlayer();
     }
 
-    private void AskNextPlayer()
-    {
+    private void AskNextPlayer() {
         if (_currentPlayer >= _players.Count)
         {
             IsFinished = true;
@@ -30,15 +28,14 @@ public class BiddingSystem
 
         _waitingForInput = true;
 
+        _views[_currentPlayer].ShowHand(_players[_currentPlayer], null);
         _views[_currentPlayer].AskForBid(OnBidSelected);
     }
 
-    private void OnBidSelected(BidType bid)
-    {
+    private void OnBidSelected(BidType bid) {
         _waitingForInput = false;
 
-        if (bid != BidType.Pass)
-        {
+        if (bid != BidType.Pass) {
             TakerId = _currentPlayer;
             IsFinished = true;
             return;
