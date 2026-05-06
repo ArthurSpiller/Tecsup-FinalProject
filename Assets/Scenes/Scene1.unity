@@ -149,10 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _playerViews:
-  - {fileID: 344029531}
-  - {fileID: 344029531}
-  - {fileID: 344029531}
-  _biddingSystem: {fileID: 0}
+  - {fileID: 344029537}
+  - {fileID: 344029537}
+  - {fileID: 344029537}
 --- !u!4 &309821492
 Transform:
   m_ObjectHideFlags: 0
@@ -179,8 +178,8 @@ GameObject:
   - component: {fileID: 344029530}
   - component: {fileID: 344029533}
   - component: {fileID: 344029532}
+  - component: {fileID: 344029537}
   - component: {fileID: 344029536}
-  - component: {fileID: 344029531}
   - component: {fileID: 344029535}
   - component: {fileID: 344029534}
   m_Layer: 5
@@ -206,24 +205,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 75}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &344029531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344029529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947eaffe6c10b0f489791e5aa93c626e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerView
-  _handContainer: {fileID: 344029530}
-  _cardPrefab: {fileID: 8905699027394332627, guid: f8dcef5afcbfa0f4287adeb97df57514, type: 3}
-  _spriteProvider: {fileID: 344029536}
 --- !u!114 &344029532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +373,22 @@ MonoBehaviour:
   - {fileID: -1143251882, guid: 1994d30bf903cb347b953a50f57d9254, type: 3}
   - {fileID: 1614071844, guid: 1994d30bf903cb347b953a50f57d9254, type: 3}
   - {fileID: 923862196, guid: 1994d30bf903cb347b953a50f57d9254, type: 3}
+--- !u!114 &344029537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344029529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6377c2f94ac3fa4f9b74e542eec610e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerView
+  _handContainer: {fileID: 344029530}
+  _cardPrefab: {fileID: 8905699027394332627, guid: f8dcef5afcbfa0f4287adeb97df57514, type: 3}
+  _spriteProvider: {fileID: 344029536}
+  _biddingView: {fileID: 1344589954}
 --- !u!1 &736079017
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,10 +785,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344589950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878d06e029137474f98e600b53ac90ad, type: 3}
+  m_Script: {fileID: 11500000, guid: c3b73b2ae0bf15243b8d7c2a19cb5779, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BiddingSystem
-  _biddingPanel: {fileID: 1344589951}
+  m_EditorClassIdentifier: Assembly-CSharp::BiddingView
   _passButton: {fileID: 1686150365}
   _takeButton: {fileID: 2044814468}
 --- !u!1 &1555297246

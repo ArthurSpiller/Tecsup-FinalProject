@@ -16,6 +16,10 @@ public class PlayerView : MonoBehaviour
         _biddingView.Show(onBidSelected);
     }
 
+    public void HideBid() {
+        _biddingView.Hide();
+    }
+
     public void ShowHand(List<PlayingCard> hand, Action<int> onCardSelected) {
         _onCardSelected = onCardSelected;
 

@@ -38,6 +38,7 @@ public class BiddingSystem
 
     private void OnBidSelected(BidType bid) {
         _waitingForInput = false;
+        _views[_currentPlayer].HideBid();
 
         Debug.Log($"Player {_currentPlayer} selected bid {bid}");
 
