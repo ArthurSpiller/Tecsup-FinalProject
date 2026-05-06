@@ -11,7 +11,7 @@ public enum BidType
     GardeContre*/
 }
 
-public class BiddingPanel : MonoBehaviour
+public class BiddingView : MonoBehaviour
 {
     [SerializeField] private Button _passButton;
     [SerializeField] private Button _takeButton;
@@ -30,14 +30,15 @@ public class BiddingPanel : MonoBehaviour
         _takeButton.onClick.AddListener(() => Select(BidType.Take));
         // _gardeButton.onClick.AddListener(() => Select(BidType.Garde));
         // _gardeSansButton.onClick.AddListener(() => Select(BidType.GardeSans));
-        // _gardeContreButton.onClick.AddListener(() => Select(BidType.GardeContre
-        ));
+        // _gardeContreButton.onClick.AddListener(() => Select(BidType.GardeContre));
     }
 
     private void Select(BidType bid)
     {
         _onBidSelected?.Invoke(bid);
-        Hide();
+        if (bid == BidType.Take) {
+            Hide();
+        }
     }
 
     public void Hide()

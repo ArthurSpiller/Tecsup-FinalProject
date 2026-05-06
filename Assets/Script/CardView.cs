@@ -18,7 +18,6 @@ public class CardView : MonoBehaviour
         _onClick = onClick;
 
         _label.text = card.ToString();
-        Debug.Log($"Setting card image for {card}: Suit={card._suit}, Rank={card._rank}");
         if (spriteProvider == null) {
             Debug.LogError("CardSpriteProvider is null!");
             return;

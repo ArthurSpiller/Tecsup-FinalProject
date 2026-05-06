@@ -13,7 +13,7 @@ public class PlayerView : MonoBehaviour
     private List<GameObject> _spawnedCards = new List<GameObject>();
 
     public void AskForBid(Action<BidType> onBidSelected) {
-        _biddingPanel.Show(onBidSelected);
+        _biddingView.Show(onBidSelected);
     }
 
     public void ShowHand(List<PlayingCard> hand, Action<int> onCardSelected) {

@@ -117,8 +117,8 @@ public class GameManager : MonoBehaviour {
             if (_takerId == -1)
                 ChangeState(GameState.EndRound);
             else
-                ChangeState(GameState.Playing);
-                //ChangeState(GameState.ChienHandling);
+                //ChangeState(GameState.Playing);
+                ChangeState(GameState.ChienHandling);
         }
     }
 
